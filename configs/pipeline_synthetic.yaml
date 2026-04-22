@@ -1,0 +1,27 @@
+strategy: pipeline
+world_size: 2
+max_steps: 50
+num_micro_batches: 4
+log_interval: 5
+ckpt_interval: 0
+log_dir: ./logs
+seed: 42
+
+model:
+  name: mlp
+  input_dim: 16
+  hidden_dim: 32
+  output_dim: 4
+  num_layers: 4
+
+data:
+  name: synthetic_classification
+  num_samples: 1024
+  input_dim: 16
+  num_classes: 4
+  batch_size: 32
+
+optimizer:
+  name: sgd
+  lr: 0.05
+  momentum: 0.9

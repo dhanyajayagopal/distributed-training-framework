@@ -1,0 +1,30 @@
+strategy: ddp
+world_size: 2
+max_steps: 500
+grad_accum_steps: 1
+precision: fp32
+grad_clip: 1.0
+log_interval: 25
+ckpt_interval: 200
+ckpt_dir: ./checkpoints
+log_dir: ./logs
+seed: 42
+
+model:
+  name: mlp
+  input_dim: 784
+  hidden_dim: 256
+  output_dim: 10
+  num_layers: 3
+
+data:
+  name: mnist
+  num_samples: 60000
+  input_dim: 784
+  num_classes: 10
+  batch_size: 128
+  data_dir: ./data
+
+optimizer:
+  name: adam
+  lr: 0.001

@@ -1,0 +1,8 @@
+torch>=2.1
+numpy>=1.24
+pyyaml>=6.0
+# Optional, used by examples/ddp_mnist.py
+torchvision>=0.16
+# Dev
+pytest>=7.4
+pytest-timeout>=2.2

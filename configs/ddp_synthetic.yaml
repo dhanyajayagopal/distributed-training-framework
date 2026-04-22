@@ -1,0 +1,29 @@
+strategy: ddp
+world_size: 2
+max_steps: 100
+grad_accum_steps: 1
+precision: fp32
+grad_clip: 1.0
+log_interval: 10
+ckpt_interval: 50
+ckpt_dir: ./checkpoints
+log_dir: ./logs
+seed: 42
+
+model:
+  name: mlp
+  input_dim: 10
+  hidden_dim: 64
+  output_dim: 1
+  num_layers: 3
+
+data:
+  name: synthetic_regression
+  num_samples: 4096
+  input_dim: 10
+  batch_size: 64
+
+optimizer:
+  name: sgd
+  lr: 0.01
+  momentum: 0.9
