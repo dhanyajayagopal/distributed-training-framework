@@ -86,7 +86,13 @@ def train_ddp(env: DistEnv, cfg: TrainConfig) -> dict:
 
     optimizer = _build_optimizer(model, cfg.optimizer)
     amp_dtype = _amp_dtype(cfg.precision)
-    scaler = torch.cuda.amp.GradScaler(enabled=amp_dtype == torch.float16 and torch.cuda.is_available())
+    use_scaler = amp_dtype == torch.float16 and torch.cuda.is_available()
+    # ``torch.amp.GradScaler`` (torch >= 2.3) is the new home; fall back on
+    # the older path for older installations.
+    try:
+        scaler = torch.amp.GradScaler("cuda", enabled=use_scaler)
+    except TypeError:  # pragma: no cover - very old torch
+        scaler = torch.cuda.amp.GradScaler(enabled=use_scaler)
 
     ckpt = CheckpointManager(cfg.ckpt_dir)
     logger = TrainingLogger(cfg.log_dir, rank=env.rank, world_size=env.world_size)

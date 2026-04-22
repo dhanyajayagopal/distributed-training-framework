@@ -1,3 +1,6 @@
 {"step": 0, "loss": 8.993635177612305, "elapsed_s": 0.019, "samples_per_s": 6879.43, "world_size": 2, "timestamp": 1776825126.711106, "lr": 0.01}
 {"step": 10, "loss": 8.146685600280762, "elapsed_s": 0.026, "samples_per_s": 17327.92, "world_size": 2, "timestamp": 1776825126.718493, "lr": 0.01}
 {"step": 20, "loss": 4.105315208435059, "elapsed_s": 0.032, "samples_per_s": 22993.32, "world_size": 2, "timestamp": 1776825126.7240598, "lr": 0.01}
+{"step": 0, "loss": 1.383707046508789, "elapsed_s": 0.033, "samples_per_s": 1926.84, "world_size": 2, "timestamp": 1776825137.922326, "lr": 0.05}
+{"step": 5, "loss": 1.4437875747680664, "elapsed_s": 0.05, "samples_per_s": 3731.38, "world_size": 2, "timestamp": 1776825137.939478, "lr": 0.05}
+{"step": 10, "loss": 1.3867086172103882, "elapsed_s": 0.065, "samples_per_s": 4485.89, "world_size": 2, "timestamp": 1776825137.953745, "lr": 0.05}
